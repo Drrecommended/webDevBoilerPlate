@@ -4,7 +4,6 @@
   "description": "A boiler plate to start projects faster",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "build": "webpack"
   },
