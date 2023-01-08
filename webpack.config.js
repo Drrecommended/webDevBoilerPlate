@@ -1,5 +1,5 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -9,6 +9,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: '[name][ext]',
   },
   module: {
     rules: [
@@ -16,12 +17,16 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   plugins: [new HtmlWebpackPlugin({
     title: 'YOUR APP NAME HERE',
     filename: 'index.html',
-    template: 'src/template.html'
+    template: 'src/template.html',
   })],
   devtool: 'source-map',
-}
+};
